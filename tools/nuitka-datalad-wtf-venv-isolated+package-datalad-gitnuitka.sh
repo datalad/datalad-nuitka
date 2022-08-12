@@ -17,7 +17,7 @@ python3 --version
 
 echo -e '#!/usr/bin/env python3\nimport datalad.api as dl\ndl.wtf()' > datalad_wtf.py
 
-nuitka3 --standalone --follow-imports --include-package=datalad --enable-plugin=anti-bloat --nofollow-import-to=*.tests datalad_wtf.py
+python3 -m nuitka --standalone --include-package=datalad '--nofollow-import-to=*.tests' --noinclude-default-mode=error  --noinclude-unittest-mode=nofollow --noinclude-pytest-mode=nofollow --python-flag=-m  datalad_wtf.py
 
 pwd
 
